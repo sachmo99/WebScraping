@@ -1,0 +1,16 @@
+'''UNDER DEVELOPMENT!!!!'''
+
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import requests
+from bs4 import BeautifulSoup
+
+source = requests.get('http://cs.stanford.edu/groups/vision/projects/OPTIMOL/category/laptop/catmain.html#Dataset')
+bsified = BeautifulSoup(source.content, 'html.parser')
+arr = bsified.find_all('img')
+print(len(arr))
+for x in arr:
+    print(x)
+chr = webdriver.Chrome('')
+chr.get('http://cs.stanford.edu/groups/vision/projects/OPTIMOL/category/laptop/catmain.html#Dataset')
+img = chr.find_elements_by_tag_name('img')
